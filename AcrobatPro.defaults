@@ -18,7 +18,7 @@ sudo -v
 # Documents ---------------------------------------------------------------- #
 
 # Remove hidden information when closing document.
-/usr/libexec/PlistBuddy -c "Add :10:Security:AutoLaunchAtDocClose array" $HOME/Library/Preferences/com.adobe.Acrobat.Pro.plist
+/usr/libexec/PlistBuddy -c "Add :10:Security:AutoLaunchAtDocClose array" $HOME/Library/Preferences/com.adobe.Acrobat.Pro.plist &>/dev/null
 /usr/libexec/PlistBuddy -c "Add :10:Security:AutoLaunchAtDocClose:0 integer 0" $HOME/Library/Preferences/com.adobe.Acrobat.Pro.plist
 /usr/libexec/PlistBuddy -c "Add :10:Security:AutoLaunchAtDocClose:1 bool YES" $HOME/Library/Preferences/com.adobe.Acrobat.Pro.plist
 
@@ -109,4 +109,4 @@ sudo rm -rf "/Library/Internet Plug-Ins/AdobePDFViewerNPAPI.plugin"
 /usr/libexec/PlistBuddy -c "Add :10:AVAlert:Checkbox:1:OptionToOwn:1 integer 1" $HOME/Library/Preferences/com.adobe.Acrobat.Pro.plist
 
 defaults write com.adobe.CSXSPreferences UpdatesAllowed -string 0
-sudo rm /Library/Preferences/com.adobe.CSXSPreferences.plist
+sudo rm /Library/Preferences/com.adobe.CSXSPreferences.plist &>/dev/null

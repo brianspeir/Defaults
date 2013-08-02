@@ -21,6 +21,7 @@ Messages > Preferences > Accounts
   - Set Account Name to <your Facebook username>@chat.facebook.com
   - Set Password to <your Facebook password>
   - Disable "Use my computer name" under Chat Settings
+
 EOM
 
 # Messages ----------------------------------------------------------------- #
@@ -31,7 +32,7 @@ defaults write com.apple.iChat SaveConversationsOnClose -bool YES
 # Messages ----------------------------------------------------------------- #
 
 # Do not open Messages when external camera is turned on.
-/usr/libexec/PlistBuddy -c "Add :com.apple.digihub.dvcamera.IIDC.appeared:action integer" $HOME/Library/Preferences/com.apple.digihub.plist
+/usr/libexec/PlistBuddy -c "Add :com.apple.digihub.dvcamera.IIDC.appeared:action integer" $HOME/Library/Preferences/com.apple.digihub.plist &>/dev/null
 /usr/libexec/PlistBuddy -c "Set :com.apple.digihub.dvcamera.IIDC.appeared:action 1" $HOME/Library/Preferences/com.apple.digihub.plist
 /usr/libexec/PlistBuddy -c "Add :com.apple.digihub.dvcamera.IIDC.irisopened:action integer" $HOME/Library/Preferences/com.apple.digihub.plist
 /usr/libexec/PlistBuddy -c "Set :com.apple.digihub.dvcamera.IIDC.irisopened:action 1" $HOME/Library/Preferences/com.apple.digihub.plist

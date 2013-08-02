@@ -14,11 +14,13 @@
 
 # Variables ---------------------------------------------------------------- #
 
-if [ -n "$DEFAULT_WINDOW" ]; then
+SOURCE="https://raw.github.com/brianspeir/Defaults/master/Resources/TerminalProfiles"
+
+if [ -z "$DEFAULT_WINDOW" ]; then
     DEFAULT_WINDOW="Crayons"
 fi
 
-SOURCE="https://raw.github.com/brianspeir/Defaults/master/Resources/TerminalProfiles"
+rm "$HOME/Library/Preferences/com.apple.Terminal.plist"
 
 # Startup ------------------------------------------------------------------ #
 
@@ -28,46 +30,46 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "$DEFAULT_WI
 # Settings ----------------------------------------------------------------- #
 
 # Remove unwanted default window settings.
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Basic'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Grass'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Homebrew'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Man Page'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Novel'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Ocean'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Pro'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Red Sands'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Silver Aerogel'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Solid Colors'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Basic'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Grass'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Homebrew'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Man Page'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Novel'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Ocean'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Pro'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Red Sands'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Silver Aerogel'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Solid Colors'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
 
-# Make import directory.
+# Download terminal profiles.
 TMPFILE=$(mktemp -d "$TMPDIR"tmp.XXXXXXXX)
+curl -s $SOURCE/Crayons.terminal -o $TMPFILE/Crayons.terminal
+curl -s $SOURCE/Glass.terminal -o $TMPFILE/Glass.terminal
+curl -s $SOURCE/Lead.terminal -o $TMPFILE/Lead.terminal
+curl -s $SOURCE/Notes.terminal -o $TMPFILE/Notes.terminal
+curl -s $SOURCE/Strawberry.terminal -o $TMPFILE/Strawberry.terminal
 
 # Import window settings Crayons.
-curl -s $SOURCE/Crayons.terminal -o $TMPFILE/Crayons.terminal
-/usr/libexec/PlistBuddy -c "Add ':Window Settings:Crayons' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Crayons.terminal ':Window Settings:Crayons'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
+/usr/libexec/PlistBuddy -c "Add ':Window Settings:Crayons' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Crayons.terminal ':Window Settings:Crayons'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
 
 # Import window settings Glass.
-curl -s $SOURCE/Glass.terminal -o $TMPFILE/Glass.terminal
-/usr/libexec/PlistBuddy -c "Add ':Window Settings:Glass' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Glass.terminal ':Window Settings:Glass'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
+/usr/libexec/PlistBuddy -c "Add ':Window Settings:Glass' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Glass.terminal ':Window Settings:Glass'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
 
 # Import window settings Lead.
-curl -s $SOURCE/Lead.terminal -o $TMPFILE/Lead.terminal
-/usr/libexec/PlistBuddy -c "Add ':Window Settings:Lead' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Lead.terminal ':Window Settings:Lead'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
+/usr/libexec/PlistBuddy -c "Add ':Window Settings:Lead' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Lead.terminal ':Window Settings:Lead'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
 
 # Import window settings Notes.
-curl -s $SOURCE/Notes.terminal -o $TMPFILE/Notes.terminal
-/usr/libexec/PlistBuddy -c "Add ':Window Settings:Notes' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Notes.terminal ':Window Settings:Notes'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
+/usr/libexec/PlistBuddy -c "Add ':Window Settings:Notes' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Notes.terminal ':Window Settings:Notes'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
 
 # Import window settings Strawberry.
-curl -s $SOURCE/Strawberry.terminal -o $TMPFILE/Strawberry.terminal
-/usr/libexec/PlistBuddy -c "Add ':Window Settings:Strawberry' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Strawberry.terminal ':Window Settings:Strawberry'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
+/usr/libexec/PlistBuddy -c "Add ':Window Settings:Strawberry' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Strawberry.terminal ':Window Settings:Strawberry'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
 
-rm -rf $TMPFILE
+rm -r $TMPFILE
 
 # Set default window settings:
 defaults write com.apple.Terminal "Default Window Settings" -string "$DEFAULT_WINDOW"

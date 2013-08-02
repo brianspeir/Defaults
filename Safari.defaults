@@ -93,7 +93,7 @@ defaults write com.apple.Safari WebKitPluginsEnabled -bool YES
 # Disable Java.
 defaults write com.apple.Safari WebKitJavaEnabled -bool NO
 sudo mkdir -p "/Library/Internet Plug-Ins/disabled" &>/dev/null
-sudo mv "/Library/Internet Plug-Ins/JavaAppletPlugin.plugin" "/Library/Internet Plug-Ins/disabled"
+sudo mv "/Library/Internet Plug-Ins/JavaAppletPlugin.plugin" "/Library/Internet Plug-Ins/disabled" &>/dev/null
 
 # Enable JavaScript
 defaults write com.apple.Safari WebKitJavaScriptEnabled -bool YES

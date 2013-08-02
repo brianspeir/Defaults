@@ -142,7 +142,7 @@ defaults write com.apple.systemuiserver menuExtras -array \
     '/System/Library/CoreServices/Menu Extras/Battery.menu'
 
 # Set a clear slate for the removals below... (prevents duplicates)
-defaults -currentHost delete com.apple.systemuiserver dontAutoLoad
+defaults -currentHost delete com.apple.systemuiserver dontAutoLoad &>/dev/null
 
 # Screen Saver ------------------------------------------------------------- #
 
@@ -232,7 +232,7 @@ defaults write com.apple.dock wvous-br-modifier -int 1,048,576
 defaults write com.apple.dashboard mcx-disabled -bool YES
 
 # Remove widgets.
-rm $HOME/Library/Preferences/widget-com.apple.widget.*.plist
+rm $HOME/Library/Preferences/widget-com.apple.widget.*.plist &>/dev/null
 
 
 # ========================================================================== #
@@ -242,7 +242,7 @@ rm $HOME/Library/Preferences/widget-com.apple.widget.*.plist
 # Language ----------------------------------------------------------------- #
 
 # Set language.
-sudo languagesetup -langspec English > /dev/null
+sudo languagesetup -langspec English &>/dev/null
 defaults write -g AppleLanguages -array "en"
 sudo defaults write /Library/Preferences/.GlobalPreferences AppleLanguages -array "en"
 defaults write com.apple.systempreferences AvailableLanguages -array "en"

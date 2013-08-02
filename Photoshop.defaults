@@ -61,4 +61,5 @@ EOM
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
 Photoshop > Preferences > Window
   - Enable application frame.
+
 EOM
