@@ -17,7 +17,7 @@
 # Because Microsoft can't figure it out. Move Microsoft User Data into the Library.
 mkdir -p "$HOME/Library/Microsoft/Office/Microsoft User Data"
 
-if [[ -r "$HOME/Documents/Microsoft User Data" ]]; then
+if [[ -f "$HOME/Documents/Microsoft User Data" ]]; then
     # Move existing files.
     mv "$HOME/Documents/Microsoft User Data" "$HOME/Library/Microsoft/Office"
 fi
