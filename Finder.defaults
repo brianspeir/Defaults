@@ -20,14 +20,14 @@ defaults write com.apple.finder NewWindowTarget -string PfHm
 # Sidebar ------------------------------------------------------------------ #
 
 # Setup sidebar items through the Finder > Preferences... No easy way to target the arrays and UIDs.
-cat >> "$HOME/Desktop/More Defaults.txt" <<'EOF'
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
 Finder > Preferences > Sidebar
   - Clean up sidebar. Remove All My Files, Desktop, Movies, Music,
     Back to My Mac and Remote Disk from sidebar.
   - Show all Hard Disks on sidebar.
   - Add Projects to sidebar.
 
-EOF
+EOM
 
 # Advanced ----------------------------------------------------------------- #
 
@@ -65,7 +65,11 @@ sudo defaults write /Library/Preferences/com.apple.NetworkBrowser DisableAirDrop
 defaults write com.apple.loginwindow TALLogoutSavesState -bool NO
 
 # Clear the Launchpad.
-sqlite3 $HOME/Library/Application\ Support/Dock/*.db "DELETE FROM apps; DELETE FROM groups WHERE rowid>2; DELETE FROM items WHERE rowid>4; DELETE FROM widgets;"; killall Dock
+sqlite3 $HOME/Library/Application\ Support/Dock/*.db "DELETE FROM apps;"
+sqlite3 $HOME/Library/Application\ Support/Dock/*.db "DELETE FROM groups WHERE rowid>2;"
+sqlite3 $HOME/Library/Application\ Support/Dock/*.db "DELETE FROM items WHERE rowid>4;"
+sqlite3 $HOME/Library/Application\ Support/Dock/*.db "DELETE FROM widgets;"
+killall Dock
 
 # Remove the User Information folder
 rm "/User Information" &>/dev/null
