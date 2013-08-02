@@ -16,18 +16,18 @@
 # Bash                                                                       #
 # -------------------------------------------------------------------------- #
 
-mkdir -p "$HOME/Library/Preferences/Bash" &>/dev/null
+mkdir -p "$HOME/Library/Preferences/Bash"
 chmod 700 "$HOME/Library/Preferences/Bash"
 
 touch "$HOME/Library/Preferences/Bash/bash_profile"
-ln -sh "$HOME/Library/Preferences/Bash/bash_profile" "$HOME/.bash_profile" &>/dev/null
+ln -fsh "$HOME/Library/Preferences/Bash/bash_profile" "$HOME/.bash_profile"
 chmod -h 700 "$HOME/.bash_profile"
 
 touch "$HOME/Library/Preferences/Bash/bashrc"
-ln -sh "$HOME/Library/Preferences/Bash/bashrc" "$HOME/.bashrc" &>/dev/null
+ln -fsh "$HOME/Library/Preferences/Bash/bashrc" "$HOME/.bashrc"
 chmod -h 700 "$HOME/.bashrc"
 
-mkdir -p "$HOME/Library/Application Support/Bash" &>/dev/null
+mkdir -p "$HOME/Library/Application Support/Bash"
 chmod 700 "$HOME/Library/Application Support/Bash"
 touch "$HOME/Library/Application Support/Bash/bash_history"
 
@@ -37,11 +37,11 @@ touch "$HOME/Library/Application Support/Bash/bash_history"
 # -------------------------------------------------------------------------- #
 
 # Relocate .gitconfig "global" to Preferences
-mkdir -p "$HOME/Library/Preferences/Git/" &>/dev/null
+mkdir -p "$HOME/Library/Preferences/Git/"
 chmod 700 "$HOME/Library/Preferences/Git/"
 
 touch "$HOME/Library/Preferences/Git/config"
-ln -sh "$HOME/Library/Preferences/Git/config" "$HOME/.gitconfig" &>/dev/null
+ln -fsh "$HOME/Library/Preferences/Git/config" "$HOME/.gitconfig"
 chmod -h 700 "$HOME/.gitconfig"
 
 
@@ -50,11 +50,11 @@ chmod -h 700 "$HOME/.gitconfig"
 # -------------------------------------------------------------------------- #
 
 # Relocate .hgrc and .gitignore to Application Support
-mkdir -p "$HOME/Library/Preferences/Mercurial/" &>/dev/null
+mkdir -p "$HOME/Library/Preferences/Mercurial/"
 chmod 700 "$HOME/Library/Preferences/Mercurial/"
 
 touch "$HOME/Library/Preferences/Mercurial/hgrc"
-ln -sh "$HOME/Library/Preferences/Mercurial/hgrc" "$HOME/.hgrc" &>/dev/null
+ln -fsh "$HOME/Library/Preferences/Mercurial/hgrc" "$HOME/.hgrc"
 chmod -h 700 "$HOME/.hgrc"
 
 
@@ -62,7 +62,7 @@ chmod -h 700 "$HOME/.hgrc"
 # Shell                                                                      #
 # -------------------------------------------------------------------------- #
 
-mkdir -p "$HOME/Library/Preferences/Shell" &>/dev/null
+mkdir -p "$HOME/Library/Preferences/Shell"
 chmod 700 "$HOME/Library/Preferences/Shell"
 
 touch "$HOME/Library/Preferences/Shell/aliases"
@@ -75,9 +75,9 @@ touch "$HOME/Library/Preferences/Shell/private"
 # -------------------------------------------------------------------------- #
 
 # Relocate .ssh to Library folder.
-mkdir -p "$HOME/Library/SSH" &>/dev/null
+mkdir -p "$HOME/Library/SSH"
 chmod 700 "$HOME/Library/SSH"
-ln -sh "$HOME/Library/SSH" "$HOME/.ssh" &>/dev/null
+ln -fsh "$HOME/Library/SSH" "$HOME/.ssh"
 chmod -h 700 "$HOME/.ssh"
 
 
@@ -86,13 +86,13 @@ chmod -h 700 "$HOME/.ssh"
 # -------------------------------------------------------------------------- #
 
 # XDG_DATA_HOME
-ln -sh "$HOME/Library/Application Support" "$HOME/.local" &>/dev/null
+ln -fsh "$HOME/Library/Application Support" "$HOME/.local"
 chmod -h 700 "$HOME/.local"
 
 # XDG_CONFIG_HOME
-ln -sh "$HOME/Library/Preferences" "$HOME/.config" &>/dev/null
+ln -fsh "$HOME/Library/Preferences" "$HOME/.config"
 chmod -h 700 "$HOME/.config"
 
 # XDG_CACHE_HOME
-ln -sh "$HOME/Library/Caches" "$HOME/.cache" &>/dev/null
+ln -fsh "$HOME/Library/Caches" "$HOME/.cache"
 chmod -h 700 "$HOME/.cache"

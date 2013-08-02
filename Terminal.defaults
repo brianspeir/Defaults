@@ -16,7 +16,7 @@
 
 SOURCE="https://raw.github.com/brianspeir/Defaults/master/Resources/TerminalProfiles"
 
-if [ -z "$DEFAULT_WINDOW" ]; then
+if [[ -z "$DEFAULT_WINDOW" ]]; then
     DEFAULT_WINDOW="Crayons"
 fi
 

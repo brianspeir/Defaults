@@ -14,7 +14,14 @@
 
 # Other -------------------------------------------------------------------- #
 
-# Because Microsoft can't figure it out. Move Microsoft User Data into the Library
-mkdir -p "$HOME/Library/Application Support/Microsoft/Office/Microsoft User Data"
-ln -s "$HOME/Library/Application Support/Microsoft/Office/Microsoft User Data" "$HOME/Documents/Microsoft User Data"
+# Because Microsoft can't figure it out. Move Microsoft User Data into the Library.
+mkdir -p "$HOME/Library/Microsoft/Office/Microsoft User Data"
+
+if [[ -r "$HOME/Documents/Microsoft User Data" ]]; then
+    # Move existing files.
+    mv "$HOME/Documents/Microsoft User Data" "$HOME/Library/Microsoft/Office"
+fi
+
+# Create a link so Microsoft doesn't get lost.
+ln -fs "$HOME/Library/Microsoft/Office/Microsoft User Data" "$HOME/Documents/Microsoft User Data"
 chflags -h hidden "$HOME/Documents/Microsoft User Data"
