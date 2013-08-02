@@ -503,9 +503,9 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults -currentHost write -g com.apple.trackpad.threeFingerTapGesture -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
 
-# Three finger drag.
-defaults -currentHost write -g com.apple.trackpad.threeFingerDragGesture -bool YES
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool YES
+# Disable three finger drag. (enabling forces Mission Control and App Exposé into four fingers)
+defaults -currentHost write -g com.apple.trackpad.threeFingerDragGesture -bool NO
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool NO
 
 # Scroll & Zoom ------------------------------------------------------------ #
 
