@@ -1,0 +1,112 @@
+#!/bin/bash
+#
+
+# SublimeText.defaults v1.0.0
+# This script sets defaults for Sublime Text 2.
+# www.brianspeir.com
+#
+# Copyright (C) 2013 Brian Speir. All rights reserved.
+#
+# Licensed under The BSD 3-Clause License. You may not use this file except
+# in compliance with the License. You may obtain a copy of the License at
+# http://opensource.org/licenses/BSD-3-Clause
+
+
+# Make the directory structure if it doesn't exist.
+mkdir -p "$HOME/Library/Application Support/Sublime Text 2/Packages/User/"
+
+# User settings.
+cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings.test" <<'EOF'
+// Sublime Text settings for Brian Speir.
+//
+// Settings in here override those in "Default/Preferences.sublime-settings", and
+// are overridden in turn by file type specific settings.
+{
+    // Sets the colors used within the text area
+    "color_scheme": "Packages/User/Espresso Soda.tmTheme",
+
+    // Fonts
+    "font_face": "Source Code Pro",
+    "font_size": 12,
+
+    // Columns in which to display vertical rulers
+    // Set to 79 per Style Guide for Python Code
+    "rulers": [79],
+
+    // The number of spaces a tab is considered equal to
+    "tab_size": 4,
+
+    // Set to true to insert spaces when tab is pressed
+    "translate_tabs_to_spaces": true,
+
+    // If translate_tabs_to_spaces is true, use_tab_stops will make tab and
+    // backspace insert/delete up to the next tabstop
+    "use_tab_stops": true,
+
+    // Calculates indentation automatically when pressing enter
+    "auto_indent": true,
+
+    // Adds whitespace up to the first open bracket when indenting. Requires
+    // auto_indent to be enabled.
+    "indent_to_bracket": true,
+
+    // Disables horizontal scrolling if enabled.
+    // May be set to true, false, or "auto", where it will be disabled for
+    // source code, and otherwise enabled.
+    "word_wrap": "auto",
+
+    // Set to true to removing trailing white space on save
+    "trim_trailing_white_space_on_save": true,
+
+    // Set to true to ensure the last line of the file ends in a newline
+    // character when saving
+    "ensure_newline_at_eof_on_save": true,
+
+    // By default, auto complete will commit the current completion on enter.
+    // This setting can be used to make it complete on tab instead.
+    // Completing on tab is generally a superior option, as it removes
+    // ambiguity between committing the completion and inserting a newline.
+    "auto_complete_commit_on_tab": true,
+
+    //
+    // User Interface Settings
+    //
+
+    // The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)
+    "theme": "Soda Light.sublime-theme",
+
+    // Makes tabs with modified files more visible
+    "highlight_modified_tabs": true,
+
+    //
+    // Application Behavior Settings
+    //
+
+    // folder_exclude_patterns and file_exclude_patterns control which files
+    // are listed in folders on the side bar. These can also be set on a per-
+    // project basis.
+    "file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db"],
+
+    // These files will still show up in the side bar, but won't be included in
+    // Goto Anything or Find in Files
+    "binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip", ".gitignore"],
+
+    // List any packages to ignore here. When removing entries from this list,
+    // a restart may be required if the package contains plugins.
+    "ignored_packages": ["Vintage"]
+}
+EOF
+
+# Package control settings. Will automatically install missing packages.
+cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings.test" <<'EOF'
+{
+    "installed_packages":
+    [
+        "Jinja2",
+        "Package Control",
+        "SCSS",
+        "SublimeLinter",
+        "Theme - Soda"
+    ]
+}
+EOF

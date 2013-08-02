@@ -1,0 +1,71 @@
+#!/bin/bash
+#
+
+# Aperture.defaults v1.0.0
+# This script sets defaults for Aperture.
+# www.brianspeir.com
+#
+# Copyright (C) 2013 Brian Speir. All rights reserved.
+#
+# Licensed under The BSD 3-Clause License. You may not use this file except
+# in compliance with the License. You may obtain a copy of the License at
+# http://opensource.org/licenses/BSD-3-Clause
+
+
+# General ------------------------------------------------------------------ #
+
+# Do not show last 12 months album.
+defaults write com.apple.Aperture ShowLastNMonthsAlbum -bool NO
+
+# Automatically stack new versions.
+defaults write com.apple.Aperture StackNewVersions -bool YES
+
+# Appearance --------------------------------------------------------------- #
+
+# Do not badge referenced items.
+defaults write com.apple.Aperture showReferenceBadge -bool NO
+
+# Import ------------------------------------------------------------------- #
+
+# Default import location is selected item.
+defaults write com.apple.Aperture RKImportDefaultVersionDestinationType -int 1
+
+# Export ------------------------------------------------------------------- #
+
+# Email photo export preset:
+defaults write com.apple.Aperture mailExportPresetName -string "Email Medium - JPEG"
+
+# Web copyright:
+defaults write com.apple.Aperture webCopyright -string "Copyright © 2013 Brian Speir. All rights reserved."
+
+# Do not include location info in exported photos.
+defaults write com.apple.Aperture includeGPSInImageExport -bool NO
+
+# Do not include face info in exported photos.
+defaults write com.apple.Aperture IncludeFaceNamesInImageExport -bool NO
+
+# Previews ----------------------------------------------------------------- #
+
+# Photo preview fit within 2880 x2880
+defaults write com.apple.Aperture limitPreviewSubsample -int 2880
+
+# Advanced ----------------------------------------------------------------- #
+
+# Create new versions when making adjustments.
+defaults write com.apple.Aperture CreateNewVersionsWhenAdjusting -bool YES
+
+# Other -------------------------------------------------------------------- #
+
+# Allow Aperture to assign locations to photos that include GPS data.
+defaults write com.apple.Aperture RKPlacesShouldReverseGeoTag -int 1
+
+# Start full screen on launch.
+# defaults write com.apple.Aperture StartFullscreenOnRelaunch -bool YES
+
+# Disable registration information.
+defaults -currentHost write $HOME/Library/Containers/com.apple.Aperture/Data/Library/Preferences/ByHost/com.apple.RegAperture AECoreTechNotSentCount -int 100
+defaults -currentHost write $HOME/Library/Containers/com.apple.Aperture/Data/Library/Preferences/ByHost/com.apple.RegAperture AECoreTechDisplayedRegPanelCount -int 100
+defaults -currentHost write $HOME/Library/Containers/com.apple.Aperture/Data/Library/Preferences/ByHost/com.apple.RegAperture AECoreTechRegister -string "YES"
+
+# Disable welcome screen.
+defaults write com.apple.Aperture didShow33WelcomeScreen -bool YES

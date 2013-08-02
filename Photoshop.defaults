@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+
+# Photoshop.defaults v1.0.0
+# This script creates notes for defaults for Adobe Photoshop CS6.
+# www.brianspeir.com
+#
+# Copyright (C) 2013 Brian Speir. All rights reserved.
+#
+# Licensed under The BSD 3-Clause License. You may not use this file except
+# in compliance with the License. You may obtain a copy of the License at
+# http://opensource.org/licenses/BSD-3-Clause
+
+
+# Interface -----------------------------------------------------------------#
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Photoshop > Preferences > Interface
+  - Color theme light grey.
+EOM
+
+# Performance ---------------------------------------------------------------#
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Photoshop > Preferences > Performance
+  - History states 100.
+EOM
+
+# Cursors -------------------------------------------------------------------#
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Photoshop > Preferences > Cursors
+  - Show only crosshair white painting.
+  - Prese other cursors.
+EOM
+
+# Units & Rulers ------------------------------------------------------------#
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Photoshop > Preferences > Units & Rulers
+  - Units for rulers pixels.
+EOM
+
+# Guides, Grid & Slices -----------------------------------------------------#
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Photoshop > Preferences > Guides, Grid & Slices
+  - Gridline every 100 px
+  - Subdivisions 10
+EOM
+
+# Plug-ins ------------------------------------------------------------------#
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Photoshop > Preferences > Plug-ins
+  - Do not allow extensions to connect to the Internet.
+EOM
+
+# Window --------------------------------------------------------------------#
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Photoshop > Preferences > Window
+  - Enable application frame.
+EOM

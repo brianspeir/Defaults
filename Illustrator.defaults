@@ -1,0 +1,80 @@
+#!/bin/bash
+#
+
+# Illutrator.defaults v1.0.0
+# This script creates notes for defaults for Adobe Illutrator CS6.
+# www.brianspeir.com
+#
+# Copyright (C) 2013 Brian Speir. All rights reserved.
+#
+# Licensed under The BSD 3-Clause License. You may not use this file except
+# in compliance with the License. You may obtain a copy of the License at
+# http://opensource.org/licenses/BSD-3-Clause
+
+
+# General ------------------------------------------------------------------ #
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Illutrator > Preferences > General
+  - Use precise cursors.
+  - Do not append [Converted] upon opening legacy files.
+  - Scale strokes & effects.
+  - Use preview bounds.
+EOM
+
+# Section & Anchor Display ------------------------------------------------- #
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Illutrator > Preferences > Section & Anchor Display
+  - Select object by path only.
+  - Snap to point 1px.
+  - Make anchor points bigger.
+  - Make handle display bigger.
+EOM
+
+# Type --------------------------------------------------------------------- #
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Illutrator > Preferences > Type
+  - Set type size/leading shift to 1 pt
+  - Set type baseline shift to 1 pt
+  - Font preview large.
+EOM
+
+# Guides & Grid ------------------------------------------------------------ #
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Illutrator > Preferences > Guides & Grid
+  - Gridline every 100 pt
+  - Subdivisions 10
+EOM
+
+# Dictionary & Hyphenation ------------------------------------------------- #
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Illutrator > Preferences > Dictionary & Hyphenation
+  - Update legacy documents to new dictionary.
+EOM
+
+# User Interface ----------------------------------------------------------- #
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Illutrator > Preferences > User Interface
+  - Light brightness.
+EOM
+
+# Appearance of Black ------------------------------------------------------ #
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Illutrator > Preferences > Appearance of Black
+  - Display all blacks on screen accurately.
+  - Output all blacks for printing or export accurately.
+EOM
+
+# Window ------------------------------------------------------------------- #
+
+cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
+Illutrator > Preferences > Window
+  - Enable application frame.
+
+EOM
