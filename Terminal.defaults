@@ -14,9 +14,11 @@
 
 # Variables ---------------------------------------------------------------- #
 
-if [ "$DEFAULT_WINDOW" == "" ]; then
+if [ -n "$DEFAULT_WINDOW" ]; then
     DEFAULT_WINDOW="Crayons"
 fi
+
+SOURCE="https://raw.github.com/brianspeir/Defaults/master/Resources/TerminalProfiles"
 
 # Startup ------------------------------------------------------------------ #
 
@@ -37,35 +39,35 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "$DEFAULT_WI
 /usr/libexec/PlistBuddy -c "Delete ':Window Settings:Silver Aerogel'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
 /usr/libexec/PlistBuddy -c "Delete ':Window Settings:Solid Colors'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
 
+# Make import directory.
+TMPFILE=$(mktemp -d "$TMPDIR"tmp.XXXXXXXX)
+
 # Import window settings Crayons.
-curl https://raw.github.com/BrianSpeir/Dot-Files/master/Crayons.terminal --create-dirs -o /tmp/Terminal/Crayons.terminal
+curl $SOURCE/Crayons.terminal -o $TMPFILE/Crayons.terminal
 /usr/libexec/PlistBuddy -c "Add ':Window Settings:Crayons' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge /tmp/Terminal/Crayons.terminal ':Window Settings:Crayons'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-rm -rf /tmp/Terminal/
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Crayons.terminal ':Window Settings:Crayons'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
 
 # Import window settings Glass.
-curl https://raw.github.com/BrianSpeir/Dot-Files/master/Glass.terminal --create-dirs -o /tmp/Terminal/Glass.terminal
+curl $SOURCE/Glass.terminal -o $TMPFILE/Glass.terminal
 /usr/libexec/PlistBuddy -c "Add ':Window Settings:Glass' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge /tmp/Terminal/Glass.terminal ':Window Settings:Glass'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-rm -rf /tmp/Terminal/
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Glass.terminal ':Window Settings:Glass'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
 
 # Import window settings Lead.
-curl https://raw.github.com/BrianSpeir/Dot-Files/master/Lead.terminal --create-dirs -o /tmp/Terminal/Lead.terminal
+curl $SOURCE/Lead.terminal -o $TMPFILE/Lead.terminal
 /usr/libexec/PlistBuddy -c "Add ':Window Settings:Lead' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge /tmp/Terminal/Lead.terminal ':Window Settings:Lead'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-rm -rf /tmp/Terminal/
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Lead.terminal ':Window Settings:Lead'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
 
 # Import window settings Notes.
-curl https://raw.github.com/BrianSpeir/Dot-Files/master/Notes.terminal --create-dirs -o /tmp/Terminal/Notes.terminal
+curl $SOURCE/Notes.terminal -o $TMPFILE/Notes.terminal
 /usr/libexec/PlistBuddy -c "Add ':Window Settings:Notes' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge /tmp/Terminal/Notes.terminal ':Window Settings:Notes'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-rm -rf /tmp/Terminal/
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Notes.terminal ':Window Settings:Notes'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
 
 # Import window settings Strawberry.
-curl https://raw.github.com/BrianSpeir/Dot-Files/master/Strawberry.terminal --create-dirs -o /tmp/Terminal/Strawberry.terminal
+curl $SOURCE/Strawberry.terminal -o $TMPFILE/Strawberry.terminal
 /usr/libexec/PlistBuddy -c "Add ':Window Settings:Strawberry' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-/usr/libexec/PlistBuddy -c "Merge /tmp/Terminal/Strawberry.terminal ':Window Settings:Strawberry'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
-rm -rf /tmp/Terminal/
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Strawberry.terminal ':Window Settings:Strawberry'" "$HOME/Library/Preferences/com.apple.Terminal.plist" &>/dev/null
+
+rm -rf $TMPFILE
 
 # Set default window settings:
 defaults write com.apple.Terminal "Default Window Settings" -string "$DEFAULT_WINDOW"
@@ -81,18 +83,3 @@ defaults write com.apple.Terminal "Man Page Window Settings" -string "Notes"
 
 # Enable on secure keyboard entry.
 defaults write com.apple.Terminal SecureKeyboardEntry -bool YES
-
-# Relocate .profile and .bashrc to Application Support
-curl https://raw.github.com/BrianSpeir/Dot-Files/master/profile --create-dirs -o "$HOME/Library/Application Support/Terminal/profile"
-ln -s "$HOME/Library/Application Support/Terminal/profile" "$HOME/.profile" &>/dev/null
-chmod -h 700 $HOME/.profile
-curl https://raw.github.com/BrianSpeir/Dot-Files/master/bashrc --create-dirs -o "$HOME/Library/Application Support/Terminal/bashrc"
-ln -s "$HOME/Library/Application Support/Terminal/bashrc" "$HOME/.bashrc" &>/dev/null
-chmod -h 700 $HOME/.bashrc
-
-# Relocate .ssh to Application Support
-mkdir -p "$HOME/Library/Application Support/SSH/"
-chmod 700 "$HOME/Library/Application Support/SSH/"
-ln -s "$HOME/Library/Application Support/SSH/" "$HOME/.ssh" &>/dev/null
-chmod -h 700 $HOME/.ssh
-
