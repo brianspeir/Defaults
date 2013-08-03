@@ -32,7 +32,7 @@ DISK_CAPACITY="$(system_profiler SPStorageDataType | awk '/Capacity/ { if (NR<14
 if [[ -z "$COMPUTER_NAME" ]]; then
     echo ""
     echo "To proceed, enter a name for your Mac."
-    echo "Or press Return to accept the default."
+    echo "Press Return to accept the default."
     echo ""
     echo -n "Name: "
     read 'COMPUTER_NAME'
@@ -48,7 +48,7 @@ HOST_NAME="$(echo "$COMPUTER_NAME" | sed 's/[^[:alnum:][:space:]-]//g;s/^[ \t]*/
 if [[ -z "$MAX_BACKUP_SIZE" ]]; then
     echo ""
     echo "If you want to set a disk quota for Time Machine backups,"
-    echo "enter the size in gigabytes (GB). Or press Return to accept the default."
+    echo "enter the size in gigabytes (GB). Press Return to accept the default."
     echo ""
     echo -n "Size: "
     read MAX_BACKUP_SIZE
@@ -61,7 +61,6 @@ fi
 
 # Variable to fix problem where "Wi-FI is not a Wi-Fi interface". (original source unknown)
 HARDWAREPORT_WI_FI="$(networksetup -listallhardwareports | grep -A 1 "Wi-Fi" | grep Device | cut -c 9-12)"
-
 
 # ========================================================================== #
 # General                                                                    #
@@ -793,4 +792,9 @@ sudo killall -HUP mDNSResponder
 diskutil renameVolume /Volumes/Macintosh\ HD "$COMPUTER_NAME HD" &>/dev/null
 
 # Give the system time to commit changes from cache.
-sleep 60
+echo "Sleeping ***************************************************" && sleep 10
+echo "**************************************************" && sleep 10
+echo "****************************************" && sleep 10
+echo "******************************" && sleep 10
+echo "********************" && sleep 10
+echo "**********" && sleep 10
