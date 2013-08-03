@@ -44,3 +44,12 @@ defaults write com.apple.DiskUtility advanced-image-options -bool YES
 # Show keychain status and lock screen in menu bar.
 /usr/libexec/PlistBuddy -c "Add :menuExtras:0 string '/Applications/Utilities/Keychain Access.app/Contents/Resources/Keychain.menu'" $HOME/Library/Preferences/com.apple.systemuiserver.plist &>/dev/null
 killall SystemUIServer
+
+# Give the system time to commit changes from cache.
+echo ""
+echo "Processing..."
+for (( i = 0; i < 10; i++ )); do
+    echo -n "####" ; sleep 1
+    echo -n "####" ; sleep 1
+done
+echo -e "\n"
