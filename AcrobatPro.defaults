@@ -50,11 +50,12 @@ sudo -v
 
 # Internet ----------------------------------------------------------------- #
 
-# Uninstall Adobe Internet Plug-Ins
-sudo rm -rf "/Library/Internet Plug-Ins/AdobeAAMDetect.plugin"
-sudo rm -rf "/Library/Internet Plug-Ins/AdobeExManDetect.plugin"
-sudo rm -rf "/Library/Internet Plug-Ins/AdobePDFViewer.plugin"
-sudo rm -rf "/Library/Internet Plug-Ins/AdobePDFViewerNPAPI.plugin"
+# Disable Internet Plug-Ins
+sudo mkdir -p "/Library/Internet Plug-Ins/disabled" &>/dev/null
+sudo mv "/Library/Internet Plug-Ins/AdobeAAMDetect.plugin" "/Library/Internet Plug-Ins/disabled" &>/dev/null
+sudo mv "/Library/Internet Plug-Ins/AdobeExManDetect.plugin" "/Library/Internet Plug-Ins/disabled" &>/dev/null
+sudo mv "/Library/Internet Plug-Ins/AdobePDFViewer.plugin" "/Library/Internet Plug-Ins/disabled" &>/dev/null
+sudo mv "/Library/Internet Plug-Ins/AdobePDFViewerNPAPI.plugin" "/Library/Internet Plug-Ins/disabled" &>/dev/null
 
 # JavaScript --------------------------------------------------------------- #
 

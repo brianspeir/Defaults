@@ -15,12 +15,14 @@
 # Accounts ----------------------------------------------------------------- #
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Messages > Preferences > Accounts
+Choose Messages > Preferences > Accounts
   - Add Facebook chat through Jabber.
-  - Set Account Type to Jabber
-  - Set Account Name to <your Facebook username>@chat.facebook.com
-  - Set Password to <your Facebook password>
-  - Disable "Use my computer name" under Chat Settings
+  - Choose Jabber for "Account Type."
+  - Enter <your Facebook username>@chat.facebook.com for "Account Name."
+  - Enter <your Facebook password> for "Password."
+
+Choose Messages > Preferences > Accounts > Facebook > Chat Settings.
+  - Deselect the option "Use my computer name."
 
 EOM
 

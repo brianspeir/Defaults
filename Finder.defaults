@@ -21,11 +21,12 @@ defaults write com.apple.finder NewWindowTarget -string PfHm
 
 # Setup sidebar items through the Finder > Preferences... No easy way to target the arrays and UIDs.
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Finder > Preferences > Sidebar
-  - Clean up sidebar. Remove All My Files, Desktop, Movies, Music,
-    Back to My Mac and Remote Disk from sidebar.
-  - Show all Hard Disks on sidebar.
-  - Add Projects to sidebar.
+Choose Finder > Preferences > Sidebar
+  - Deslect "All My Files," "Desktop," "Movies," "Music,"
+    "Back to My Mac" and "Remote Disk."
+  - Select "Hard Disks."
+
+Add the "Projects" folder to sidebar.
 
 EOM
 

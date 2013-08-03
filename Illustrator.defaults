@@ -15,66 +15,65 @@
 # General ------------------------------------------------------------------ #
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Illutrator > Preferences > General
-  - Use precise cursors.
-  - Do not append [Converted] upon opening legacy files.
-  - Scale strokes & effects.
-  - Use preview bounds.
+Choose Illutrator > Preferences > General
+  - Select "Use Precise Cursors."
+  - Deselect the option "Append [Converted] Upon Opening Legacy Files."
+  - Select "Scale Strokes & Effects."
+  - Select "Use Preview Bounds."
 EOM
 
 # Section & Anchor Display ------------------------------------------------- #
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Illutrator > Preferences > Section & Anchor Display
-  - Select object by path only.
-  - Snap to point 1px.
-  - Make anchor points bigger.
-  - Make handle display bigger.
+Choose Illutrator > Preferences > Section & Anchor Display
+  - Select "Object Selection by Path Only."
+  - Enter t for "Snap to Point."
+  - Select large "Anchors."
+  - Select large "Handles."
 EOM
 
 # Type --------------------------------------------------------------------- #
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Illutrator > Preferences > Type
-  - Set type size/leading shift to 1 pt
-  - Set type baseline shift to 1 pt
-  - Font preview large.
+Choose Illutrator > Preferences > Type
+  - Enter 1 pt for "Size/Leading"
+  - Enter t pt for "Baseline Shift."
+  - Choose large for "Font Preview Size."
 EOM
 
 # Guides & Grid ------------------------------------------------------------ #
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Illutrator > Preferences > Guides & Grid
-  - Gridline every 100 pt
-  - Subdivisions 10
+Choose Illutrator > Preferences > Guides & Grid
+  - Enter 100 pt "Gridline every."
+  - Enter 10 for "Subdivisions."
 EOM
 
 # Dictionary & Hyphenation ------------------------------------------------- #
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Illutrator > Preferences > Dictionary & Hyphenation
-  - Update legacy documents to new dictionary.
+Choose Illutrator > Preferences > Dictionary & Hyphenation
+  - Select "Update legacy documents to new dictionary."
 EOM
 
 # User Interface ----------------------------------------------------------- #
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Illutrator > Preferences > User Interface
-  - Light brightness.
+Choose Illutrator > Preferences > User Interface
+  - Choose Light for "Brightness."
 EOM
 
 # Appearance of Black ------------------------------------------------------ #
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Illutrator > Preferences > Appearance of Black
-  - Display all blacks on screen accurately.
-  - Output all blacks for printing or export accurately.
+Choose Illutrator > Preferences > Appearance of Black
+  - Choose Display All Blacks Accurately for "On Screen."
+  - Choose Output All Blacks Accurately for "Printing / Exporting."
 EOM
 
 # Window ------------------------------------------------------------------- #
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Illutrator > Preferences > Window
-  - Enable application frame.
+Choose Window > Application Frame.
 
 EOM

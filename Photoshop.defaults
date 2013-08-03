@@ -15,51 +15,50 @@
 # Interface -----------------------------------------------------------------#
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Photoshop > Preferences > Interface
-  - Color theme light grey.
+Choose Photoshop > Preferences > Interface
+  - Select the light grey "Color Theme."
 EOM
 
 # Performance ---------------------------------------------------------------#
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Photoshop > Preferences > Performance
-  - History states 100.
+Choose Photoshop > Preferences > Performance
+  - Enter 100 for "History States."
 EOM
 
 # Cursors -------------------------------------------------------------------#
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Photoshop > Preferences > Cursors
-  - Show only crosshair white painting.
-  - Prese other cursors.
+Choose Photoshop > Preferences > Cursors
+  - Select "Show Only Crosshair While Painting.""
+  - Select Precise for "Other Cursors."
 EOM
 
 # Units & Rulers ------------------------------------------------------------#
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Photoshop > Preferences > Units & Rulers
-  - Units for rulers pixels.
+Choose Photoshop > Preferences > Units & Rulers
+  - Choose Pixels for "Units for Rulers."
 EOM
 
 # Guides, Grid & Slices -----------------------------------------------------#
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Photoshop > Preferences > Guides, Grid & Slices
-  - Gridline every 100 px
-  - Subdivisions 10
+Choose Photoshop > Preferences > Guides, Grid & Slices
+  - Enter 100 px for "Gridline Every."
+  - Enter 10 for "Subdivisions."
 EOM
 
 # Plug-ins ------------------------------------------------------------------#
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Photoshop > Preferences > Plug-ins
-  - Do not allow extensions to connect to the Internet.
+Choose Photoshop > Preferences > Plug-ins
+  - Deselect the option  "Allow Extensions to Connect to the Internet."
 EOM
 
 # Window --------------------------------------------------------------------#
 
 cat >> "$HOME/Desktop/More Defaults.txt" <<'EOM'
-Photoshop > Preferences > Window
-  - Enable application frame.
+Choose Window > Application Frame.
 
 EOM
