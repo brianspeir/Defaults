@@ -52,7 +52,6 @@ if [[ -z "$MAX_BACKUP_SIZE" ]]; then
     echo ""
     echo -n "Size: "
     read MAX_BACKUP_SIZE
-    echo ""
     MAX_BACKUP_SIZE=$(echo "scale=0; ($MAX_BACKUP_SIZE*1024)/1" | bc -l 2>/dev/null)
     if [[ -z "$MAX_BACKUP_SIZE" ]]; then
         MAX_BACKUP_SIZE="$(echo "scale=0; ($DISK_CAPACITY*1.5)/1" | bc -l)"
@@ -792,9 +791,10 @@ sudo killall -HUP mDNSResponder
 diskutil renameVolume /Volumes/Macintosh\ HD "$COMPUTER_NAME HD" &>/dev/null
 
 # Give the system time to commit changes from cache.
-echo "Sleeping ***************************************************" && sleep 10
-echo "**************************************************" && sleep 10
-echo "****************************************" && sleep 10
-echo "******************************" && sleep 10
-echo "********************" && sleep 10
-echo "**********" && sleep 10
+echo ""
+echo "Processing..."
+for (( i = 0; i < 10; i++ )); do
+    echo -n "#"
+    sleep 1
+done
+echo -e "\n"
