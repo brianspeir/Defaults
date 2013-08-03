@@ -20,14 +20,31 @@ if [[ -z "$DEFAULT_WINDOW" ]]; then
     DEFAULT_WINDOW="Crayons"
 fi
 
-rm "$HOME/Library/Preferences/com.apple.Terminal.plist"
+# Reset to a clean foundation.
+rm "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 10
 
 # Startup ------------------------------------------------------------------ #
 
 # On startup, open new window with settings:
 defaults write com.apple.Terminal "Startup Window Settings" -string "$DEFAULT_WINDOW"
 
+# Set default window settings:
+defaults write com.apple.Terminal "Default Window Settings" -string "$DEFAULT_WINDOW"
+
+# Set man page window setting:
+defaults write com.apple.Terminal "Man Page Window Settings" -string "Notes"
+
+# Window Groups ------------------------------------------------------------ #
+
+# Encodings ---------------------------------------------------------------- #
+
+# Other -------------------------------------------------------------------- #
+
+# Enable on secure keyboard entry.
+defaults write com.apple.Terminal SecureKeyboardEntry -bool YES
+
 # Settings ----------------------------------------------------------------- #
+# (writting additional defaults beyond this point will cause preferences to reset)
 
 # Remove unwanted default window settings.
 /usr/libexec/PlistBuddy -c "Delete ':Window Settings:Basic'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
@@ -71,17 +88,3 @@ curl -s $SOURCE/Strawberry.terminal -o $TMPFILE/Strawberry.terminal
 
 rm -r $TMPFILE
 
-# Set default window settings:
-defaults write com.apple.Terminal "Default Window Settings" -string "$DEFAULT_WINDOW"
-
-# Set man page window setting:
-defaults write com.apple.Terminal "Man Page Window Settings" -string "Notes"
-
-# Window Groups ------------------------------------------------------------ #
-
-# Encodings ---------------------------------------------------------------- #
-
-# Other -------------------------------------------------------------------- #
-
-# Enable on secure keyboard entry.
-defaults write com.apple.Terminal SecureKeyboardEntry -bool YES
