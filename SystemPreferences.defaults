@@ -791,10 +791,7 @@ sudo killall -HUP mDNSResponder
 diskutil renameVolume /Volumes/Macintosh\ HD "$COMPUTER_NAME HD" &>/dev/null
 
 # Give the system time to commit changes from cache.
-echo ""
-echo "Processing..."
 for (( i = 0; i < 20; i++ )); do
     echo -n "##" ; sleep 1
     echo -n "##" ; sleep 2
 done
-echo -e "\n"
