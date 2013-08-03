@@ -43,21 +43,9 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool YES
 # Settings ----------------------------------------------------------------- #
 
 # Reset Window Settings to a clean foundation.
-defaults delete com.apple.Terminal "Window Settings"
+defaults write com.apple.Terminal "Window Settings" -dict
 
 #  (additional defaults beyond this point will cause preferences to reset)   #
-
-# Remove unwanted default window settings.
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Basic'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Grass'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Homebrew'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Man Page'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Novel'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Ocean'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Pro'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Red Sands'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Silver Aerogel'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
-/usr/libexec/PlistBuddy -c "Delete ':Window Settings:Solid Colors'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
 
 # Download terminal profiles.
 TMPFILE=$(mktemp -d "$TMPDIR"tmp.XXXXXXXX)
