@@ -20,9 +20,6 @@ if [[ -z "$DEFAULT_WINDOW" ]]; then
     DEFAULT_WINDOW="Crayons"
 fi
 
-# Reset to a clean foundation.
-rm "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 10
-
 # Startup ------------------------------------------------------------------ #
 
 # On startup, open new window with settings:
@@ -44,7 +41,11 @@ defaults write com.apple.Terminal "Man Page Window Settings" -string "Notes"
 defaults write com.apple.Terminal SecureKeyboardEntry -bool YES
 
 # Settings ----------------------------------------------------------------- #
-# (writting additional defaults beyond this point will cause preferences to reset)
+
+# Reset Window Settings to a clean foundation.
+defaults delete com.apple.Terminal "Window Settings"
+
+#  (additional defaults beyond this point will cause preferences to reset)   #
 
 # Remove unwanted default window settings.
 /usr/libexec/PlistBuddy -c "Delete ':Window Settings:Basic'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
