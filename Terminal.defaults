@@ -43,7 +43,7 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool YES
 # Settings ----------------------------------------------------------------- #
 
 # Reset Window Settings to a clean foundation.
-defaults write com.apple.Terminal "Window Settings" -dict
+defaults write com.apple.Terminal "Window Settings" -dict && sleep 1
 
 #  (additional defaults beyond this point will cause preferences to reset)   #
 
