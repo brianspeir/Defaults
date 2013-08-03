@@ -16,67 +16,132 @@
 # Bash                                                                       #
 # -------------------------------------------------------------------------- #
 
+
 mkdir -p "$HOME/Library/Preferences/Bash"
 chmod 700 "$HOME/Library/Preferences/Bash"
 
-touch "$HOME/Library/Preferences/Bash/bash_profile"
-ln -fsh "$HOME/Library/Preferences/Bash/bash_profile" "$HOME/.bash_profile"
-chmod -h 700 "$HOME/.bash_profile"
+# Relocate .bashrc to Preferences.
+if [[ -f "$HOME/.bashrc" ]]; then
+    # Move existing file.
+    mv "$HOME/.bashrc" "$HOME/Library/Preferences/Bash/bashrc"
+else
+    touch "$HOME/Library/Preferences/Bash/bashrc"
+fi
 
-touch "$HOME/Library/Preferences/Bash/bashrc"
 ln -fsh "$HOME/Library/Preferences/Bash/bashrc" "$HOME/.bashrc"
 chmod -h 700 "$HOME/.bashrc"
 
-mkdir -p "$HOME/Library/Application Support/Bash"
-chmod 700 "$HOME/Library/Application Support/Bash"
-touch "$HOME/Library/Application Support/Bash/bash_history"
+# The name and location of this file is taken from the value of the environment variable INPUTRC.
+if [[ -f "$HOME/.inputrc" ]]; then
+    # Move existing file.
+    mv "$HOME/.inputrc" "$HOME/Library/Preferences/Bash/inputrc"
+else
+    touch "$HOME/Library/Preferences/Bash/inputrc"
+fi
 
 
 # -------------------------------------------------------------------------- #
 # Git                                                                        #
 # -------------------------------------------------------------------------- #
 
-# Relocate .gitconfig "global" to Preferences
 mkdir -p "$HOME/Library/Preferences/Git/"
 chmod 700 "$HOME/Library/Preferences/Git/"
 
-touch "$HOME/Library/Preferences/Git/config"
+# Relocate .gitconfig "global" to Preferences.
+if [[ -f "$HOME/.gitconfig" ]]; then
+    # Move existing file.
+    mv "$HOME/.gitconfig" "$HOME/Library/Preferences/Git/config"
+else
+    touch "$HOME/Library/Preferences/Git/config"
+fi
+
 ln -fsh "$HOME/Library/Preferences/Git/config" "$HOME/.gitconfig"
 chmod -h 700 "$HOME/.gitconfig"
+
+# Relocate .gitignore to Preferences.
+if [[ -f "$HOME/.gitignore"* ]]; then
+    # Move existing file.
+    mv "$HOME/.gitignore"* "$HOME/Library/Preferences/Git/ignore"
+else
+    touch "$HOME/Library/Preferences/Git/ignore"
+fi
 
 
 # -------------------------------------------------------------------------- #
 # Mercurial                                                                  #
 # -------------------------------------------------------------------------- #
 
-# Relocate .hgrc and .gitignore to Application Support
 mkdir -p "$HOME/Library/Preferences/Mercurial/"
 chmod 700 "$HOME/Library/Preferences/Mercurial/"
 
-touch "$HOME/Library/Preferences/Mercurial/hgrc"
+# Relocate .hgrc to Preferences.
+if [[ -f "$HOME/.hgrc" ]]; then
+    # Move existing file.
+    mv "$HOME/.hgrc" "$HOME/Library/Preferences/Mercurial/config"
+else
+    touch "$HOME/Library/Preferences/Mercurial/config"
+fi
+
 ln -fsh "$HOME/Library/Preferences/Mercurial/hgrc" "$HOME/.hgrc"
 chmod -h 700 "$HOME/.hgrc"
+
+# Relocate .hgignore to Preferences.
+if [[ -f "$HOME/.hgignore"* ]]; then
+    # Move existing file.
+    mv "$HOME/.hgignore"* "$HOME/Library/Preferences/Mercurial/ignore"
+else
+    touch "$HOME/Library/Preferences/Mercurial/ignore"
+fi
 
 
 # -------------------------------------------------------------------------- #
 # Shell                                                                      #
 # -------------------------------------------------------------------------- #
 
+mkdir -p "$HOME/Library/Shell"
+chmod 700 "$HOME/Library/Shell"
+
+# Relocate shell history to the Library.
+if [[ -f "$HOME/.bash_history" ]]; then
+    # Move existing file.
+    mv "$HOME/.bash_history" "$HOME/Library/Preferences/Shell/history"
+else
+    touch "$HOME/Library/Shell/history"
+fi
+
 mkdir -p "$HOME/Library/Preferences/Shell"
 chmod 700 "$HOME/Library/Preferences/Shell"
 
+# Relocate .profile to Preferences.
+if [[ -f "$HOME/.profile" ]]; then
+    # Move existing file.
+    mv "$HOME/.profile" "$HOME/Library/Preferences/Shell/profile"
+else
+    touch "$HOME/Library/Preferences/Shell/profile"
+fi
+
+ln -fsh "$HOME/Library/Preferences/Shell/profile" "$HOME/.profile"
+chmod -h 700 "$HOME/.profile"
+
+# Foundation for additional shell files.
 touch "$HOME/Library/Preferences/Shell/aliases"
-touch "$HOME/Library/Preferences/Shell/sources"
+touch "$HOME/Library/Preferences/Shell/paths"
 touch "$HOME/Library/Preferences/Shell/private"
+touch "$HOME/Library/Preferences/Shell/sources"
 
 
 # -------------------------------------------------------------------------- #
 # SSH                                                                        #
 # -------------------------------------------------------------------------- #
 
-# Relocate .ssh to Library folder.
+# Relocate .ssh to the Library folder.
 mkdir -p "$HOME/Library/SSH"
 chmod 700 "$HOME/Library/SSH"
+if [[ -f "$HOME/.ssh" ]]; then
+    # Move existing file.
+    mv "$HOME/.ssh" "$HOME/Library/SSH"
+fi
+
 ln -fsh "$HOME/Library/SSH" "$HOME/.ssh"
 chmod -h 700 "$HOME/.ssh"
 
@@ -86,13 +151,13 @@ chmod -h 700 "$HOME/.ssh"
 # -------------------------------------------------------------------------- #
 
 # XDG_DATA_HOME
-ln -fsh "$HOME/Library/Application Support" "$HOME/.local"
-chmod -h 700 "$HOME/.local"
+# ln -fsh "$HOME/Library" "$HOME/.local"
+# chmod -h 700 "$HOME/.local"
 
 # XDG_CONFIG_HOME
-ln -fsh "$HOME/Library/Preferences" "$HOME/.config"
-chmod -h 700 "$HOME/.config"
+# ln -fsh "$HOME/Library/Preferences" "$HOME/.config"
+# chmod -h 700 "$HOME/.config"
 
 # XDG_CACHE_HOME
-ln -fsh "$HOME/Library/Caches" "$HOME/.cache"
-chmod -h 700 "$HOME/.cache"
+# ln -fsh "$HOME/Library/Caches" "$HOME/.cache"
+# chmod -h 700 "$HOME/.cache"
