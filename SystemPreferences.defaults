@@ -795,4 +795,4 @@ for (( i = 0; i < 20; i++ )); do
     echo -n "##" ; sleep 1
     echo -n "##" ; sleep 2
 done
-""
+echo ""
