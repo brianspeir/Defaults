@@ -16,54 +16,62 @@
 # Bash                                                                       #
 # -------------------------------------------------------------------------- #
 
-
+# Create location.
 mkdir -p "$HOME/Library/Preferences/Bash"
 chmod 700 "$HOME/Library/Preferences/Bash"
 
-# Relocate .bashrc to Preferences.
-if [[ -f "$HOME/.bashrc" ]]; then
-    # Move existing file.
-    mv "$HOME/.bashrc" "$HOME/Library/Preferences/Bash/bashrc"
-else
+# Link .bashrc to Preferences.
+if [[ -h "$HOME/.bashrc" ]] || [[ ! -r "$HOME/.bashrc" ]]; then
+    # Create a link to a placeholder file.
     touch "$HOME/Library/Preferences/Bash/bashrc"
+    ln -fs "$HOME/Library/Preferences/Bash/bashrc" "$HOME/.bashrc"
+    chmod -h 700 "$HOME/.bashrc"
+elif [[ -r "$HOME/.bashrc" ]]; then
+    # Move existing file and create link.
+    mv "$HOME/.bashrc" "$HOME/Library/Preferences/Bash/bashrc"
+    ln -fs "$HOME/Library/Preferences/Bash/bashrc" "$HOME/.bashrc"
+    chmod -h 700 "$HOME/.bashrc"
 fi
 
-ln -fsh "$HOME/Library/Preferences/Bash/bashrc" "$HOME/.bashrc"
-chmod -h 700 "$HOME/.bashrc"
-
-# The name and location of this file is taken from the value of the environment variable INPUTRC.
-if [[ -f "$HOME/.inputrc" ]]; then
-    # Move existing file.
-    mv "$HOME/.inputrc" "$HOME/Library/Preferences/Bash/inputrc"
-else
+# Move .inputrc to Preferences. Location is set from variable INPUTRC.
+if [[ -h "$HOME/.inputrc" ]] || [[ ! -r "$HOME/.inputrc" ]]; then
+    # Remove links or create a placeholder file.
+    rm "$HOME/.inputrc" &>/dev/null
     touch "$HOME/Library/Preferences/Bash/inputrc"
+elif [[ -r "$HOME/.inputrc" ]]; then
+    # Move existing file and create link.
+    mv "$HOME/.inputrc" "$HOME/Library/Preferences/Bash/inputrc"
 fi
-
 
 # -------------------------------------------------------------------------- #
 # Git                                                                        #
 # -------------------------------------------------------------------------- #
 
+# Create location.
 mkdir -p "$HOME/Library/Preferences/Git/"
 chmod 700 "$HOME/Library/Preferences/Git/"
 
-# Relocate .gitconfig "global" to Preferences.
-if [[ -f "$HOME/.gitconfig" ]]; then
-    # Move existing file.
-    mv "$HOME/.gitconfig" "$HOME/Library/Preferences/Git/config"
-else
+# Link .gitconfig to Preferences.
+if [[ -h "$HOME/.gitconfig" ]] || [[ ! -r "$HOME/.gitconfig" ]]; then
+    # Create a link to a placeholder file.
     touch "$HOME/Library/Preferences/Git/config"
+    ln -fs "$HOME/Library/Preferences/Git/config" "$HOME/.gitconfig"
+    chmod -h 700 "$HOME/.gitconfig"
+elif [[ -r "$HOME/.gitconfig" ]]; then
+    # Move existing file and create link.
+    mv "$HOME/.gitconfig" "$HOME/Library/Preferences/Git/config"
+    ln -fs "$HOME/Library/Preferences/Git/config" "$HOME/.gitconfig"
+    chmod -h 700 "$HOME/.gitconfig"
 fi
 
-ln -fsh "$HOME/Library/Preferences/Git/config" "$HOME/.gitconfig"
-chmod -h 700 "$HOME/.gitconfig"
-
-# Relocate .gitignore to Preferences.
-if [[ -f "$HOME/.gitignore"* ]]; then
-    # Move existing file.
-    mv "$HOME/.gitignore"* "$HOME/Library/Preferences/Git/ignore"
-else
+# Move .gitignore to Preferences. Location is set in Git config.
+if [[ -h "$HOME/.gitignore" ]] || [[ ! -r "$HOME/.gitignore" ]]; then
+    # Remove links or create a placeholder file.
+    rm "$HOME/.gitignore" &>/dev/null
     touch "$HOME/Library/Preferences/Git/ignore"
+elif [[ -r "$HOME/.gitignore" ]]; then
+    # Move existing file and create link.
+    mv "$HOME/.gitignore" "$HOME/Library/Preferences/Git/ignore"
 fi
 
 
@@ -71,26 +79,31 @@ fi
 # Mercurial                                                                  #
 # -------------------------------------------------------------------------- #
 
+# Create location.
 mkdir -p "$HOME/Library/Preferences/Mercurial/"
 chmod 700 "$HOME/Library/Preferences/Mercurial/"
 
-# Relocate .hgrc to Preferences.
-if [[ -f "$HOME/.hgrc" ]]; then
-    # Move existing file.
-    mv "$HOME/.hgrc" "$HOME/Library/Preferences/Mercurial/config"
-else
+# Link .hgrc to Preferences.
+if [[ -h "$HOME/.hgrc" ]] || [[ ! -r "$HOME/.hgrc" ]]; then
+    # Create a link to a placeholder file.
     touch "$HOME/Library/Preferences/Mercurial/config"
+    ln -fs "$HOME/Library/Preferences/Mercurial/config" "$HOME/.hgrc"
+    chmod -h 700 "$HOME/.hgrc"
+elif [[ -r "$HOME/.hgrc" ]]; then
+    # Move existing file and create link.
+    mv "$HOME/.hgrc" "$HOME/Library/Preferences/Mercurial/config"
+    ln -fs "$HOME/Library/Preferences/Mercurial/config" "$HOME/.hgrc"
+    chmod -h 700 "$HOME/.hgrc"
 fi
 
-ln -fsh "$HOME/Library/Preferences/Mercurial/hgrc" "$HOME/.hgrc"
-chmod -h 700 "$HOME/.hgrc"
-
-# Relocate .hgignore to Preferences.
-if [[ -f "$HOME/.hgignore"* ]]; then
-    # Move existing file.
-    mv "$HOME/.hgignore"* "$HOME/Library/Preferences/Mercurial/ignore"
-else
+# Move .hgignore to Preferences. Location is set in Mercurial config.
+if [[ -h "$HOME/.hgignore" ]] || [[ ! -r "$HOME/.hgignore" ]]; then
+    # Remove links or create a placeholder file.
+    rm "$HOME/.hgignore" &>/dev/null
     touch "$HOME/Library/Preferences/Mercurial/ignore"
+elif [[ -r "$HOME/.hgignore" ]]; then
+    # Move existing file and create link.
+    mv "$HOME/.hgignore" "$HOME/Library/Preferences/Mercurial/ignore"
 fi
 
 
@@ -98,32 +111,38 @@ fi
 # Shell                                                                      #
 # -------------------------------------------------------------------------- #
 
+# Create location.
 mkdir -p "$HOME/Library/Shell"
 chmod 700 "$HOME/Library/Shell"
 
-# Relocate shell history to the Library.
-if [[ -f "$HOME/.bash_history" ]]; then
-    # Move existing file.
-    mv "$HOME/.bash_history" "$HOME/Library/Preferences/Shell/history"
-else
+# Relocate shell history to Library.
+if [[ -h "$HOME/.bash_history" ]] || [[ ! -r "$HOME/.bash_history" ]]; then
+    # Create a link to a placeholder file.
+    rm "$HOME/.bash_history" &>/dev/null
     touch "$HOME/Library/Shell/history"
+elif [[ -r "$HOME/.bash_history" ]]; then
+    # Move existing file and create link.
+    mv "$HOME/.bash_history" "$HOME/Library/Shell/history"
 fi
 
+# Create location.
 mkdir -p "$HOME/Library/Preferences/Shell"
 chmod 700 "$HOME/Library/Preferences/Shell"
 
-# Relocate .profile to Preferences.
-if [[ -f "$HOME/.profile" ]]; then
-    # Move existing file.
-    mv "$HOME/.profile" "$HOME/Library/Preferences/Shell/profile"
-else
+# Link .profile to Preferences.
+if [[ -h "$HOME/.profile" ]] || [[ ! -r "$HOME/.profile" ]]; then
+    # Create a link to a placeholder file.
     touch "$HOME/Library/Preferences/Shell/profile"
+    ln -fs "$HOME/Library/Preferences/Shell/profile" "$HOME/.profile"
+    chmod -h 700 "$HOME/.profile"
+elif [[ -r "$HOME/.profile" ]]; then
+    # Move existing file and create link.
+    mv "$HOME/.profile" "$HOME/Library/Preferences/Shell/profile"
+    ln -fs "$HOME/Library/Preferences/Shell/profile" "$HOME/.profile"
+    chmod -h 700 "$HOME/.profile"
 fi
 
-ln -fsh "$HOME/Library/Preferences/Shell/profile" "$HOME/.profile"
-chmod -h 700 "$HOME/.profile"
-
-# Foundation for additional shell files.
+# Placeholder for additional shell files.
 touch "$HOME/Library/Preferences/Shell/aliases"
 touch "$HOME/Library/Preferences/Shell/paths"
 touch "$HOME/Library/Preferences/Shell/private"
@@ -134,16 +153,22 @@ touch "$HOME/Library/Preferences/Shell/sources"
 # SSH                                                                        #
 # -------------------------------------------------------------------------- #
 
-# Relocate .ssh to the Library folder.
+# Create location.
 mkdir -p "$HOME/Library/SSH"
 chmod 700 "$HOME/Library/SSH"
-if [[ -f "$HOME/.ssh" ]]; then
-    # Move existing file.
-    mv "$HOME/.ssh" "$HOME/Library/SSH"
-fi
 
-ln -fsh "$HOME/Library/SSH" "$HOME/.ssh"
-chmod -h 700 "$HOME/.ssh"
+# Link .ssh to Library.
+if [[ -h "$HOME/.ssh" ]] || [[ ! -r "$HOME/.ssh" ]]; then
+    # Create a link to a placeholder file.
+    touch "$HOME/Library/SSH"
+    ln -fhs "$HOME/Library/SSH" "$HOME/.ssh"
+    chmod -h 700 "$HOME/.ssh"
+elif [[ -d "$HOME/.ssh" ]]; then
+    # Move existing file and create link.
+    mv "$HOME/.ssh" "$HOME/Library/SSH"
+    ln -fs "$HOME/Library/SSH" "$HOME/.ssh"
+    chmod -h 700 "$HOME/.ssh"
+fi
 
 
 # -------------------------------------------------------------------------- #
@@ -151,13 +176,13 @@ chmod -h 700 "$HOME/.ssh"
 # -------------------------------------------------------------------------- #
 
 # XDG_DATA_HOME
-# ln -fsh "$HOME/Library" "$HOME/.local"
+# ln -fs "$HOME/Library" "$HOME/.local"
 # chmod -h 700 "$HOME/.local"
 
 # XDG_CONFIG_HOME
-# ln -fsh "$HOME/Library/Preferences" "$HOME/.config"
+# ln -fs "$HOME/Library/Preferences" "$HOME/.config"
 # chmod -h 700 "$HOME/.config"
 
 # XDG_CACHE_HOME
-# ln -fsh "$HOME/Library/Caches" "$HOME/.cache"
+# ln -fs "$HOME/Library/Caches" "$HOME/.cache"
 # chmod -h 700 "$HOME/.cache"
