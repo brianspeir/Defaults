@@ -166,7 +166,7 @@ if [[ -h "$HOME/.ssh" ]] || [[ ! -r "$HOME/.ssh" ]]; then
 elif [[ -d "$HOME/.ssh" ]]; then
     # Move existing file and create link.
     mv "$HOME/.ssh" "$HOME/Library/SSH"
-    ln -fs "$HOME/Library/SSH" "$HOME/.ssh"
+    ln -fhs "$HOME/Library/SSH" "$HOME/.ssh"
     chmod -h 700 "$HOME/.ssh"
 fi
 
