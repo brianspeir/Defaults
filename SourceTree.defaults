@@ -12,6 +12,11 @@
 # http://opensource.org/licenses/BSD-3-Clause
 
 
+# Dependencies ------------------------------------------------------------- #
+
+# Install fonts.
+bash <(curl -s https://raw.github.com/brianspeir/Bundles/master/Fonts.install)
+
 # General ------------------------------------------------------------------ #
 
 # Do not allow SourceTree to modify your global Mercurial and Git configuration files

@@ -12,8 +12,15 @@
 # http://opensource.org/licenses/BSD-3-Clause
 
 
+# Dependencies ------------------------------------------------------------- #
+
+# Install fonts.
+bash <(curl -s https://raw.github.com/brianspeir/Bundles/master/Fonts.install)
+
 # Make the directory structure if it doesn't exist.
 mkdir -p "$HOME/Library/Application Support/Sublime Text 2/Packages/User/"
+
+# Preferences -------------------------------------------------------------- #
 
 # User settings.
 cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings.test" <<'EOF'
