@@ -12,6 +12,10 @@
 # http://opensource.org/licenses/BSD-3-Clause
 
 
+# Dependencies ------------------------------------------------------------- #
+
+bash <(curl -s https://raw.github.com/brianspeir/Bundles/master/fonts.install)
+
 # Variables ---------------------------------------------------------------- #
 
 SOURCE="https://raw.github.com/brianspeir/Defaults/master/Resources/TerminalProfiles"
