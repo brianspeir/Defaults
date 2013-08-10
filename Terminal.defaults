@@ -80,5 +80,9 @@ curl -s $SOURCE/Strawberry.terminal -o $TMPFILE/Strawberry.terminal
 /usr/libexec/PlistBuddy -c "Add ':Window Settings:Strawberry' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
 /usr/libexec/PlistBuddy -c "Merge $TMPFILE/Strawberry.terminal ':Window Settings:Strawberry'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
 
+# Import window settings Carnation.
+/usr/libexec/PlistBuddy -c "Add ':Window Settings:Carnation' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+/usr/libexec/PlistBuddy -c "Merge $TMPFILE/Carnation.terminal ':Window Settings:Carnation'" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
+
 rm -r $TMPFILE
 
