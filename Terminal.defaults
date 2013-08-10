@@ -14,7 +14,7 @@
 
 # Dependencies ------------------------------------------------------------- #
 
-bash <(curl -s https://raw.github.com/brianspeir/Bundles/master/fonts.install)
+bash <(curl -s https://raw.github.com/brianspeir/Bundles/master/Fonts.install)
 
 # Variables ---------------------------------------------------------------- #
 
