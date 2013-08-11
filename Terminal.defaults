@@ -59,6 +59,7 @@ curl -s $SOURCE/Glass.terminal -o $TMPFILE/Glass.terminal
 curl -s $SOURCE/Lead.terminal -o $TMPFILE/Lead.terminal
 curl -s $SOURCE/Notes.terminal -o $TMPFILE/Notes.terminal
 curl -s $SOURCE/Strawberry.terminal -o $TMPFILE/Strawberry.terminal
+curl -s $SOURCE/Carnation.terminal -o $TMPFILE/Carnation.terminal
 
 # Import window settings Crayons.
 /usr/libexec/PlistBuddy -c "Add ':Window Settings:Crayons' dict" "$HOME/Library/Preferences/com.apple.Terminal.plist" && sleep 1
