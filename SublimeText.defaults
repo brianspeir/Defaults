@@ -112,10 +112,14 @@ cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Package Co
     "installed_packages":
     [
         "Package Control",
-        "Jinja2",
-        "SCSS",
+        "Theme - Soda",
         "SublimeLinter",
-        "Theme - Soda"
+        "Jinja2",
+        "HTML5",
+        "SCSS",
+        "LESS",
+        "sublime-jslint",
+        "Git"
     ]
 }
 EOF
