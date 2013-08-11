@@ -14,8 +14,10 @@
 
 # Dependencies ------------------------------------------------------------- #
 
-# Install fonts.
-bash <(curl -s https://raw.github.com/brianspeir/Bundles/master/Fonts.install)
+# Install Source Code Pro fonts.
+if [[ ! -r "$HOME/Library/Fonts/SourceCodePro-Regular.otf" ]]; then
+    bash <(curl -s https://raw.github.com/brianspeir/Bundles/master/Fonts.install)
+fi
 
 # Make the directory structure if it doesn't exist.
 mkdir -p "$HOME/Library/Application Support/Sublime Text 2/Packages/User/"
