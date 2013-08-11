@@ -25,7 +25,7 @@ mkdir -p "$HOME/Library/Application Support/Sublime Text 2/Packages/User/"
 # Preferences -------------------------------------------------------------- #
 
 # User settings.
-cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings.test" <<'EOF'
+cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings" <<'EOF'
 // Sublime Text settings for Brian Speir.
 //
 // Settings in here override those in "Default/Preferences.sublime-settings", and
@@ -107,7 +107,7 @@ cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preference
 EOF
 
 # Package control settings. Will automatically install missing packages.
-cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings.test" <<'EOF'
+cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings" <<'EOF'
 {
     "installed_packages":
     [
