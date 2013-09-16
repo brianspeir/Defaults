@@ -21,18 +21,18 @@ defaults write com.google.Chrome RestoreOnStartup -int 1
 defaults write com.google.Chrome DefaultBrowserSettingEnabled -bool NO
 
 # Block sites from setting any data.
-defaults write com.google.Chrome DefaultCookiesSetting -int 2
+# defaults write com.google.Chrome DefaultCookiesSetting -int 2
 
 # Block third-party cookies and site data.
-defaults write com.google.Chrome BlockThirdPartyCookies -bool YES
+# defaults write com.google.Chrome BlockThirdPartyCookies -bool YES
 
 # Do not allow any site to handle protocols.
 
 # Click to play plug-ins.
-defaults write com.google.Chrome DefaultPluginsSetting -int 3
+# defaults write com.google.Chrome DefaultPluginsSetting -int 3
 
 # Do not allow any site to show pop-ups.
-defaults write com.google.Chrome DefaultPopupsSetting -int 2
+# defaults write com.google.Chrome DefaultPopupsSetting -int 2
 
 # Do not allow any site to track my physical location.
 defaults write com.google.Chrome DefaultGeolocationSetting -int 2
@@ -47,7 +47,7 @@ defaults write com.google.Chrome VideoCaptureAllowed -bool NO
 defaults write com.google.Chrome AudioCaptureAllowed -bool NO
 
 # Do not allow any site to use a plug-in to access my computer.
-defaults write com.google.Chrome AllowFileSelectionDialogs -bool NO
+# defaults write com.google.Chrome AllowFileSelectionDialogs -bool NO
 
 # Do not use a web service to help resolve navigation errors.
 
