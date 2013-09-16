@@ -12,6 +12,9 @@
 # http://opensource.org/licenses/BSD-3-Clause
 
 
+# Extend the password time stamp.
+sudo -v
+
 # Export MacPorts location to paths.
 if [ -r "$HOME/Library/Preferences/Shell/paths" ]; then
     echo 'export PATH=/opt/local/bin:/opt/local/sbin:$PATH' >> "$HOME/Library/Preferences/Shell/paths"
