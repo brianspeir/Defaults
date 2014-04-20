@@ -38,9 +38,17 @@ cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preference
     "font_face": "Source Code Pro",
     "font_size": 12,
 
+    // Valid options are "no_bold", "no_italic", "no_antialias", "gray_antialias",
+    // "subpixel_antialias", "no_round" (OS X only) and "directwrite" (Windows only)
+    "font_options": ["subpixel_antialias"],
+
+
     // Columns in which to display vertical rulers
     // Set to 79 per Style Guide for Python Code
-    "rulers": [79],
+    "rulers": [72,79,84,99],
+
+    // Set to true to turn spell checking on by default
+    "spell_check": false,
 
     // The number of spaces a tab is considered equal to
     "tab_size": 4,
@@ -55,6 +63,10 @@ cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preference
     // Calculates indentation automatically when pressing enter
     "auto_indent": true,
 
+    // Makes auto indent a little smarter, e.g., by indenting the next line
+    // after an if statement in C. Requires auto_indent to be enabled.
+    "smart_indent": true,
+
     // Adds whitespace up to the first open bracket when indenting. Requires
     // auto_indent to be enabled.
     "indent_to_bracket": true,
@@ -62,7 +74,15 @@ cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preference
     // Disables horizontal scrolling if enabled.
     // May be set to true, false, or "auto", where it will be disabled for
     // source code, and otherwise enabled.
-    "word_wrap": "auto",
+    "word_wrap": "false",
+
+    // Set to a value other than 0 to force wrapping at that column rather than the
+    // window width
+    "wrap_width": 79,
+
+    // Set to "none" to turn off drawing white space, "selection" to draw only the
+    // white space within the selection, and "all" to draw all white space
+    "draw_white_space": "all",
 
     // Set to true to removing trailing white space on save
     "trim_trailing_white_space_on_save": true,
@@ -94,6 +114,7 @@ cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preference
     // folder_exclude_patterns and file_exclude_patterns control which files
     // are listed in folders on the side bar. These can also be set on a per-
     // project basis.
+    "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS"],
     "file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db"],
 
     // These files will still show up in the side bar, but won't be included in
@@ -109,17 +130,80 @@ EOF
 # Package control settings. Will automatically install missing packages.
 cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings" <<'EOF'
 {
+    // If package install, upgrade and removal info should be submitted to
+    // the channel for aggregated statistics
+    "submit_usage": false,
+
     "installed_packages":
     [
         "Package Control",
         "Theme - Soda",
         "SublimeLinter",
-        "Jinja2",
         "HTML5",
         "SCSS",
-        "LESS",
-        "sublime-jslint",
-        "Git"
+        "Python Flake8 Lint",
+        "Restructured Text (RST) Snippets",
+        "GitGutter"
     ]
+}
+EOF
+
+# Flake 8 Lint settings.
+cat > "$HOME/Library/Application Support/Sublime Text 2/Packages/User/Flake8Lint.sublime-settings" <<'EOF'
+{
+    // debug mode (verbose output to ST python console)
+    "debug": false,
+
+    // run flake8 lint on file saving
+    "lint_on_save": true,
+    // run flake8 lint on file loading
+    "lint_on_load": false,
+
+    // popup a dialog of detected conditions?
+    "popup": false,
+    // highlight detected conditions?
+    "highlight": true,
+
+    // show a mark in the gutter on all lines with errors/warnings:
+    // - "dot", "circle" or "bookmark" to show marks
+    // - "" (empty string) to do not show marks
+    "gutter_marks": "dot",
+
+    // report successfull (passed) lint
+    "report_on_success": false,
+
+    // load global flake8 config ("~/.config/flake8")
+    "use_flake8_global_config": true,
+    // load per-project config (i.e. "tox.ini", "setup.cfg" and ".pep8" files)
+    "use_flake8_project_config": false,
+
+    // set python interpreter (lint files for python >= 2.7):
+    // - 'internal' for use internal Sublime Text 2 interpreter (2.6)
+    // - 'auto' for search default system python interpreter (default value)
+    // - absolute path to python interpreter for define another one
+    //   use platform specific notation, i.e. "C:\\Anaconda\\envs\\py33\\python.exe"
+    //   for Windows or then "/home/whatever/pythondist/python" for Unix
+    "python_interpreter": "auto",
+
+    // list of python built-in functions (like '_')
+    "builtins": [],
+
+    // turn on pyflakes error lint
+    "pyflakes": true,
+    // turn on pep8 error lint
+    "pep8": true,
+    // turn off complexity check (set number > 0 to check complexity level)
+    "complexity": 10,
+
+    // set desired max line length
+    "pep8_max_line_length": 84,
+
+    // select errors and warnings (e.g. ["E", "W6"])
+    "select": [],
+    // skip errors and warnings (e.g. ["E303", E4", "W"])
+    "ignore": [],
+
+    // files to ignore, for example: ["*.mako", "test*.py"]
+    "ignore_files": []
 }
 EOF

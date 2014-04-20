@@ -1,0 +1,93 @@
+#!/bin/bash
+
+#
+# Copyright (C) 2013 Brian Speir. All rights reserved.
+#
+# Licensed under The BSD 3-Clause License (the "License"); you may not
+# use this file except in compliance with the License. You may obtain a
+# copy of the License at http://opensource.org/licenses/BSD-3-Clause.
+#
+#
+
+# Install
+#
+# This script sets defaults.
+#
+#
+
+
+# Variables ---------------------------------------------------------- #
+
+SOURCE="https://raw.github.com/brianspeir/Defaults/master/defaults"
+
+shopt -s nullglob
+
+echo ""
+echo "Welcome to Defaults."
+echo ""
+echo "Please quit open apps."
+echo ""
+echo "This software requires you restart your"
+echo "computer when the installation is done."
+echo "Are you sure you want to install now?"
+echo ""
+echo "To proceed, enter your password, or type Ctrl-C to abort."
+echo ""
+sudo -v
+
+if [[ -n "$1" ]]; then
+    # Argument passed from the command line
+    SELECTION="$1"
+else
+    # Argument entered by the user.
+    echo ""
+    echo "To proceed, enter the name of the Default to install."
+    echo "Press Return to perform a standard installation."
+    echo ""
+    echo -n "Install: "
+    read 'SELECTION'
+    if [[ -z "$SELECTION" ]]; then
+        # Default argument.
+        SELECTION="AcrobatPro Aperture Calendar Chrome Contacts EC2 Finder \
+        Illustrator iWork Mail Messages Office Opera Photoshop Preview \
+        Quicken Safari SourceTree SublimeText Terminal UNIX Vagrant \
+        SystemPreferences Utilities"
+    fi
+fi
+
+# Default computer name. (if variable not previously assigned)
+if [[ "$SELECTION" == *SystemPreferences* ]]; then
+    echo ""
+    echo "To proceed, enter a name for your Mac."
+    echo "Press Return to accept the default."
+    echo ""
+    echo -n "Computer Name: "
+    read 'COMPUTER_NAME'
+    export COMPUTER_NAME
+    echo ""
+    echo "If you want to set a disk quota for Time Machine backups,"
+    echo "enter the size in gigabytes (GB). Press Return to accept the default."
+    echo ""
+    echo -n "Size: "
+    read MAX_BACKUP_SIZE
+    echo ""
+    MAX_BACKUP_SIZE=$(echo "scale=0; ($MAX_BACKUP_SIZE*1024)/1" | bc -l 2>/dev/null)
+    export MAX_BACKUP_SIZE
+fi
+
+# Installer ---------------------------------------------------------- #
+
+for f in $(echo $SELECTION); do
+    echo ""
+    echo "Setting up $f defaults..."
+    bash <(curl -Ls $SOURCE/$f.defaults)
+done
+
+## Invalidate the user time stamp and require passwords again.
+sudo -k
+
+echo ""
+echo "The installation was successful."
+echo ""
+
+exit
