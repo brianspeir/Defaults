@@ -18,7 +18,7 @@
 
 # Variables ---------------------------------------------------------- #
 
-SOURCE="https://raw.github.com/brianspeir/Defaults/master/defaults"
+SOURCE="https://raw.githubusercontent.com/brianspeir/Defaults/master/Defaults"
 
 shopt -s nullglob
 

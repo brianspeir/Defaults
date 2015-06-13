@@ -1,20 +1,24 @@
-#!/bin/bash
+#!/bin/sh
+
+#
+#  Copyright (C) 2015 Brian Speir. All rights reserved.
+#
+#  Licensed under The BSD 3-Clause License (the "License"); you may not
+#  use this file except in compliance with the License. You may obtain
+#  a copy of the License at http://opensource.org/licenses/BSD-3-Clause.
+#
 #
 
-# UNIX.defaults v1.0.0
-# This script sets defaults for Mac OS X UNIX programs (Mountain Lion).
-# www.brianspeir.com
+#  Unix.sh
+#  Defaults
 #
-# Copyright (C) 2013 Brian Speir. All rights reserved.
+#  This script sets defaults for Mac OS X UNIX programs (Yosemite).
 #
-# Licensed under The BSD 3-Clause License. You may not use this file except
-# in compliance with the License. You may obtain a copy of the License at
-# http://opensource.org/licenses/BSD-3-Clause
 
 
-# -------------------------------------------------------------------------- #
-# Bash                                                                       #
-# -------------------------------------------------------------------------- #
+# -------------------------------------------------------------------- #
+# Bash                                                                 #
+# -------------------------------------------------------------------- #
 
 # Create location.
 mkdir -p "$HOME/Library/Preferences/Bash"
@@ -43,9 +47,10 @@ elif [[ -r "$HOME/.inputrc" ]]; then
     mv "$HOME/.inputrc" "$HOME/Library/Preferences/Bash/inputrc"
 fi
 
-# -------------------------------------------------------------------------- #
-# Git                                                                        #
-# -------------------------------------------------------------------------- #
+
+# -------------------------------------------------------------------- #
+# Git                                                                  #
+# -------------------------------------------------------------------- #
 
 # Create location.
 mkdir -p "$HOME/Library/Preferences/Git/"
@@ -75,9 +80,9 @@ elif [[ -r "$HOME/.gitignore" ]]; then
 fi
 
 
-# -------------------------------------------------------------------------- #
-# Mercurial                                                                  #
-# -------------------------------------------------------------------------- #
+# -------------------------------------------------------------------- #
+# Mercurial                                                            #
+# -------------------------------------------------------------------- #
 
 # Create location.
 mkdir -p "$HOME/Library/Preferences/Mercurial/"
@@ -107,9 +112,9 @@ elif [[ -r "$HOME/.hgignore" ]]; then
 fi
 
 
-# -------------------------------------------------------------------------- #
-# Shell                                                                      #
-# -------------------------------------------------------------------------- #
+# -------------------------------------------------------------------- #
+# Shell                                                                #
+# -------------------------------------------------------------------- #
 
 # Create location.
 mkdir -p "$HOME/Library/Shell"
@@ -149,9 +154,9 @@ touch "$HOME/Library/Preferences/Shell/private"
 touch "$HOME/Library/Preferences/Shell/sources"
 
 
-# -------------------------------------------------------------------------- #
-# SSH                                                                        #
-# -------------------------------------------------------------------------- #
+# -------------------------------------------------------------------- #
+# SSH                                                                  #
+# -------------------------------------------------------------------- #
 
 # Create location.
 mkdir -p "$HOME/Library/SSH"
@@ -171,9 +176,9 @@ elif [[ -d "$HOME/.ssh" ]]; then
 fi
 
 
-# -------------------------------------------------------------------------- #
-# XDG Directories                                                            #
-# -------------------------------------------------------------------------- #
+# -------------------------------------------------------------------- #
+# XDG Directories                                                      #
+# -------------------------------------------------------------------- #
 
 # XDG_DATA_HOME
 # ln -fs "$HOME/Library" "$HOME/.local"

@@ -1,15 +1,19 @@
-#!/bin/bash
+#!/bin/sh
+
+#
+#  Copyright (C) 2013-2015 Brian Speir. All rights reserved.
+#
+#  Licensed under The BSD 3-Clause License (the "License"); you may not
+#  use this file except in compliance with the License. You may obtain
+#  a copy of the License at http://opensource.org/licenses/BSD-3-Clause.
+#
 #
 
-# SourceTree.defaults v1.0.0
-# This script sets defaults for SourceTree (1.6.x).
-# www.brianspeir.com
+#  SourceTree.sh v1.0.1
+#  Defaults
 #
-# Copyright (C) 2013 Brian Speir. All rights reserved.
+#  This script sets defaults for SourceTree (1.6.x).
 #
-# Licensed under The BSD 3-Clause License. You may not use this file except
-# in compliance with the License. You may obtain a copy of the License at
-# http://opensource.org/licenses/BSD-3-Clause
 
 
 # Dependencies ------------------------------------------------------------- #
