@@ -174,20 +174,3 @@ elif [[ -d "$HOME/.ssh" ]]; then
     ln -fhs "$HOME/Library/SSH" "$HOME/.ssh"
     chmod -h 700 "$HOME/.ssh"
 fi
-
-
-# -------------------------------------------------------------------- #
-# XDG Directories                                                      #
-# -------------------------------------------------------------------- #
-
-# XDG_DATA_HOME
-# ln -fs "$HOME/Library" "$HOME/.local"
-# chmod -h 700 "$HOME/.local"
-
-# XDG_CONFIG_HOME
-# ln -fs "$HOME/Library/Preferences" "$HOME/.config"
-# chmod -h 700 "$HOME/.config"
-
-# XDG_CACHE_HOME
-# ln -fs "$HOME/Library/Caches" "$HOME/.cache"
-# chmod -h 700 "$HOME/.cache"
