@@ -7,4 +7,4 @@ A highly opinionated set of defaults to get your Mac up and running...
 
 .. code-block:: bash
 
-    bash <(curl -s https://raw.github.com/brianspeir/Defaults/master/Defaults/[name].sh)
+    bash <(curl -s https://raw.githubusercontent.com/brianspeir/Defaults/master/Defaults/[name].sh)
